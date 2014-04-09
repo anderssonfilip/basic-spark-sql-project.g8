@@ -18,7 +18,9 @@ object SparkSQL extends Application {
   people.registerAsTable("people")
 
   // SQL Statements can be run by using the sql methods proviced by sqlContext
-  val teenagers = sql("SELECT name from people where age >= 13 AND age <= 19")
+  val teenagersSQL = sql("SELECT name from people where age >= 13 AND age <= 19")
+
+  teenagersSQL.map(println)
 
   // The results of SQL queries are SchemaRDD and support normal RDD operations.
   // The columns of a row in the result can be accessed by ordinal.
